@@ -439,7 +439,7 @@ footer{
 /*? =================CART HTML=================== */
 
 .cart-html{
-    height: 150vh;
+    height: 100vh;
     background: white;
     display: flex;
     flex-direction: column;
@@ -466,7 +466,7 @@ footer{
     justify-content: center;
     align-items: center;
     gap: 60px;
-    display: none;
+    display: none; 
 }
 
 
@@ -479,6 +479,7 @@ footer{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .empty-cart-title>h2{
@@ -487,9 +488,10 @@ footer{
 }
 
 .item-price{
-    width: 80%;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 250px;
 }
 
 .buy-btn{
@@ -540,10 +542,11 @@ footer{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* display: none; */
 }
 
 .cart-card{
-    padding: 10px;
+    padding: 8px;
     width: 400px;
     background-color: #89afa1;
     display: flex;
@@ -565,13 +568,51 @@ footer{
 }
 
 .cart-counter{
-    background-color: red;
+    background-color: #f0eeee;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    color: #454444;
+    font-weight: 500;
+    border-radius: 4px;
+}
+
+.cart-counter > div {
+    width: 30px;
+    height: 30px;
+    background-color: #349570;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    border-radius: 4px;
+}
+
+.cart-counter > div:hover{
+    cursor: pointer;
+    background: #454444;
+}
+
+.cart-card > svg {
+    stroke: white;
+    margin-left: 3px;
+}
+
+.cart-card > svg:hover {
+   stroke: #454444;
+   cursor: pointer;
 }
 
 @media(max-width: 620px){
+    .cart-html{
+        height: 150vh;
+    }
     .cart-card{
         width: 100%;
+    }
+
+    .item-price{
+        gap: 190px;
     }
 }
