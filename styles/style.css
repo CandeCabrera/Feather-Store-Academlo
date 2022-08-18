@@ -439,7 +439,7 @@ footer{
 /*? =================CART HTML=================== */
 
 .cart-html{
-    height: 100vh;
+    height: 150vh;
     background: white;
     display: flex;
     flex-direction: column;
