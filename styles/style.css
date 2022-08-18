@@ -439,7 +439,7 @@ footer{
 /*? =================CART HTML=================== */
 
 .cart-html{
-    height: 120vh;
+    height: 100vh;
     background: white;
     display: flex;
     flex-direction: column;
@@ -456,6 +456,7 @@ footer{
     justify-content: center;
     align-items: center;
     gap: 60px;
+    position: relative;
 }
 .empty-cart{
     margin-top: -40px;
@@ -493,7 +494,7 @@ footer{
 
 .buy-btn{
     height: 60px;
-    width: 200px;
+    width: 40%;/*andtes 200px*/
     background-color: #349570;
     font-weight: 700;
     font-size: 21px;
@@ -501,7 +502,8 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: -390px;
+    position: relative;
+    right: 0;
     text-decoration: none;
 }
 
@@ -521,13 +523,23 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: -500px;
     text-decoration: none;
+    position: absolute;
+    top: 50px;
+    right: 0px;
 }
 
 .close-btn:hover{
     background-color: #454444;
     cursor: pointer;
+}
+
+.filled-cart{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .cart-card{
@@ -547,9 +559,6 @@ footer{
     height: 100px;
 }
 
-.cart-box{
-    /* margin-left: -20px; */
-}
 
 .item-desc > h4{
     margin-bottom: -14px;
@@ -559,4 +568,10 @@ footer{
     background-color: red;
     display: flex;
     justify-content: space-between;
+}
+
+@media(max-width: 620px){
+    .cart-card{
+        width: 100%;
+    }
 }
