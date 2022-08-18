@@ -1,0 +1,445 @@
+:root{
+    --main: #e94959;
+  --button: #2b2b2b;
+  --button2: #363636;
+  --card: #e6e6e6;
+  --title: #262626;
+  --text: #595959;
+  --text2: #8c8c8c;
+  --background: #f7f7f8;
+}
+
+
+html{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+*, *::after, *::before{
+    box-sizing: inherit;
+}
+
+body{
+    background: #c7c7c7;
+    font-family: 'Montserrat', sans-serif;
+    margin: auto;
+}
+
+header{
+    height: 100px;
+    /* background: pink; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* position: fixed; */
+}
+
+nav{
+    width: 90%;
+    height: 70px;
+    /* background: rgba(0, 128, 0, 0.429); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 40px;
+}
+
+.nav-right{
+    /* background: red; */
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 70px;
+    flex-wrap: wrap;
+}
+
+.corner-logo{
+    display: flex;
+    align-items: center;
+}
+
+.corner-logo > h3{
+   font-weight: 600;
+   color: #454444;
+}
+
+.nav-right > a{
+    text-decoration: none;
+    color: #454444;
+}
+
+.a-hover:hover{
+    cursor: pointer;
+    color: white;
+    font-weight: 700;
+    
+}
+
+@media(max-width: 620px){
+    
+    header{
+        padding: 80px 0;
+        background: #349570;
+    }
+
+   nav{
+    flex-direction: column;
+    gap: 10px;
+    }
+   .corner-logo > h3{
+    display: none;
+    }
+
+    .corner-logo > svg{
+        stroke: white;
+    }
+
+    .nav-right {
+        justify-content: center;
+    }
+    .nav-right > a {
+        color: white;
+    }
+    .nav-right > a:hover {
+        color: white;
+        text-decoration: underline;
+    }
+}
+
+.nav-left{
+    /* background: blue; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+
+.nav-left > svg {
+    height: 35px;
+}
+
+.nav-left > svg:hover {
+    cursor: pointer;
+    stroke: white;
+}
+
+.cart{
+    /* background-color: yellow; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+
+}
+
+.cart > svg:hover{
+    cursor: pointer;
+    stroke: white;
+}
+
+.cart-number{
+    position: absolute;
+    top: 6px;
+    background-color: #454444;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}  
+
+@media(max-width: 620px){
+    .nav-left > svg {
+        stroke: white;
+    }
+
+    .cart > svg {
+        stroke: white;
+    }
+}
+
+.section1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.sec1-right{
+    padding: 10px;
+    width: 45%;
+    min-width: 300px;
+    height: 500px;
+    /* background-color: #e94959; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.sec1-right > h1 {
+    width: 90%;
+    font-size: 40px;
+}
+
+.sec1-right > h3 {
+    color: #349570;
+    font-size: 22px;
+}
+
+.add-to-cart{
+    background: #454444;
+    width: 200px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.add-to-cart:hover{
+    cursor: pointer;
+    background: #349570;
+}
+
+.square{
+    position: relative;
+    z-index: -1;
+    top: -100px;
+    min-width: 300px;
+    width: 45%;
+    height: 700px;
+    right: 0;
+    background: #349570;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0 20px;
+}
+
+.square > img {
+    position: relative;
+    bottom: 40px;
+    width: 90%;   
+}
+
+@media(max-width: 620px){
+    .section1{
+        flex-direction: column-reverse;
+        margin-bottom: 0px;
+    }
+    .square{
+        height: 600px;
+        width: 100%;
+    }
+    .sec1-right{
+        width: 100%;
+        padding: 0 30px;
+    }
+}
+
+.section2{
+    margin-top: 40px;
+    margin-bottom: 100px;
+    /* background: plum; */
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+}
+
+.sec-top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.sec-top > button{
+    width: 250px;
+    border: none;
+    
+    
+}
+.sec-top > button:hover{
+    cursor: pointer;
+}
+
+@media(max-width: 620px){
+    .section2{
+        margin-top: 20px;
+        padding: 50px 0;
+    }
+    .sec-top > button{
+        width: 100%;
+    }
+    .sec1-right{
+        width: 100%;
+        padding: 0 30px;
+    }
+}
+
+/*   <div class="card">
+            <div class="card-img"></div>
+            <div class="card-circle">plus svg</div>
+            <div class="card-footer">
+                <div class="card-footer-right">
+                    <h3>$14.00</h3>
+                    <h4>Hoodies</h4>
+                </div>
+                <div class="card-footer-left">| Stock: 10</div>
+            </div>
+        </div>*/
+
+.sec-bottom{
+    margin-top: 70px;
+    /* background-color: goldenrod; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    color: #454444;
+}
+
+.card{
+    position: relative;
+    /* background: #dfdede; */
+    background: #89afa1;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-img{
+    width: 250px;
+    height: 250px;
+}
+
+.card-circle{
+    position: absolute;
+    right: 8px;
+    bottom: 60px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0.1px 0.1px 10px #595959;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-circle:hover{
+    background: #349570;
+    cursor: pointer;
+}
+
+.card-circle > svg:hover {
+    stroke: white;
+}
+
+.card-footer{
+    margin-top: 16px;
+    padding: 0 25px;
+    display: flex;
+    gap: 10px;
+    
+}
+
+.save-animals{
+    width: 250px;
+    height: 250px;
+}
+
+.card-footer-right > h3{
+    margin-top: 0px;
+}
+
+.card-footer-right > h4{
+    margin-top: -13px;
+}
+
+.card-footer-left{
+    margin-top: 2px;
+    font-size: 14px;
+    color: #454444;
+}
+
+footer{
+    background-color: #f0eeee;
+    color: #777575;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    font-size: 15px;
+    
+}
+.footer-container{
+    padding: 18px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-top{
+ /* width: 100px;
+ margin: 0 20px 20px 20px; */
+ display: flex;
+ justify-content: center;
+ align-items: flex-start;
+ gap: 60px;
+ flex-wrap: wrap;
+}
+
+.footer-top > div{
+    /* background: rgba(255, 0, 0, 0.165); */
+    margin: 10px;
+}
+
+.svg-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.svg-box > svg:hover{
+    stroke: #349570;
+    cursor: pointer;
+}
+
+.line{
+    width: 100%;
+    background-color: #777575;
+    height: 0.5px;   
+}
+.footer-bottom{
+    margin: 20px 20px 0px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.same-hover:hover{
+    text-decoration: underline;
+    cursor: pointer;
+   }
