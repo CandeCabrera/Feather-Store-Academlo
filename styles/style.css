@@ -433,4 +433,130 @@ footer{
 .same-hover:hover{
     text-decoration: underline;
     cursor: pointer;
-   }
+}
+
+
+/*? =================CART HTML=================== */
+
+.cart-html{
+    height: 120vh;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.my-cart{
+    margin-top: -40px;
+    height: 100%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+}
+.empty-cart{
+    margin-top: -40px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    display: none;
+}
+
+
+.empty-cart > h2{
+    color: #349570;
+}
+
+.empty-cart-title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.empty-cart-title>h2{
+    color: #349570;
+    margin-bottom: -10px;
+}
+
+.item-price{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buy-btn{
+    height: 60px;
+    width: 200px;
+    background-color: #349570;
+    font-weight: 700;
+    font-size: 21px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: -390px;
+    text-decoration: none;
+}
+
+.buy-btn:hover{
+    background-color: #454444;
+    cursor: pointer;
+}
+
+.close-btn{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #349570;
+    font-weight: 400;
+    font-size: 21px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: -500px;
+    text-decoration: none;
+}
+
+.close-btn:hover{
+    background-color: #454444;
+    cursor: pointer;
+}
+
+.cart-card{
+    padding: 10px;
+    width: 400px;
+    background-color: #89afa1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0.1px 0.1px 10px #454444;
+}
+
+.cart-img{
+    height: 100px;
+}
+
+.cart-box{
+    /* margin-left: -20px; */
+}
+
+.item-desc > h4{
+    margin-bottom: -14px;
+}
+
+.cart-counter{
+    background-color: red;
+    display: flex;
+    justify-content: space-between;
+}
