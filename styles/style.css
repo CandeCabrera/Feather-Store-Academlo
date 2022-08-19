@@ -283,18 +283,6 @@ nav{
     }
 }
 
-/*   <div class="card">
-            <div class="card-img"></div>
-            <div class="card-circle">plus svg</div>
-            <div class="card-footer">
-                <div class="card-footer-right">
-                    <h3>$14.00</h3>
-                    <h4>Hoodies</h4>
-                </div>
-                <div class="card-footer-left">| Stock: 10</div>
-            </div>
-        </div>*/
-
 .sec-bottom{
     margin-top: 70px;
     /* background-color: goldenrod; */
@@ -436,19 +424,24 @@ footer{
 }
 
 
-/*? =================CART HTML=================== */
+/*? =================CART STYLES=================== */
 
-.cart-html{
-    height: 100vh;
-    background: white;
+.cart-area{
+    position: fixed;
+    z-index: 1;
+    right: 0; 
+    height: 100%;
+    width: 550px;
+    background-color: rgba(255, 255, 255, 0.31);
+    backdrop-filter: blur(15px) contrast(110%);
+    -webkit-backdrop-filter: blur(15px);
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    display: none; 
 }
 
 .my-cart{
-    margin-top: -40px;
     height: 100%;
     width: 80%;
     display: flex;
@@ -457,17 +450,42 @@ footer{
     align-items: center;
     gap: 60px;
     position: relative;
+    /* background-color: plum; */
+} 
+
+.my-cart > h2{
+    font-size: 35px;
 }
+ @media(max-width: 820px){
+    .cart-area{
+        width: 100%;
+    }
+    .my-cart > h2{
+        margin-top: 50px;
+        font-size: 20px;
+        
+    }
+ }
+
+
+/* ! ========================== EMPTY CART */
 .empty-cart{
-    margin-top: -40px;
-    width: 80%;
+    display: none;
+}
+/* .empty-cart{
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 60px;
-    display: none; 
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0.1px 0.1px 10px #454444;
+    display: none;
 }
+
 
 
 .empty-cart > h2{
@@ -485,13 +503,14 @@ footer{
 .empty-cart-title>h2{
     color: #349570;
     margin-bottom: -10px;
-}
+} */
 
 .item-price{
     width: 100%;
     display: flex;
     justify-content: center;
     gap: 250px;
+    font-weight: 700;
 }
 
 .buy-btn{
@@ -507,11 +526,13 @@ footer{
     position: relative;
     right: 0;
     text-decoration: none;
+    box-shadow: 0.1px 0.1px 5px #454444;
 }
 
 .buy-btn:hover{
     background-color: #454444;
     cursor: pointer;
+    box-shadow: 0.1px 0.1px 5px #454444;
 }
 
 .close-btn{
@@ -529,12 +550,37 @@ footer{
     position: absolute;
     top: 50px;
     right: 0px;
+    box-shadow: 0.1px 0.1px 5px #454444;
 }
 
 .close-btn:hover{
     background-color: #454444;
     cursor: pointer;
+    box-shadow: 0.1px 0.1px 5px #454444;
 }
+
+
+@media(max-width: 820px){
+    
+    
+    .buy-btn{
+        margin-top: -30px;
+        height: 55px;
+        width: 40%;
+        font-size: 17px;
+       
+    }
+    
+    .close-btn{
+        margin-top: -5px;
+        height: 30px;
+        width: 30px;
+        font-size: 16px;
+    }
+   
+ }
+
+/* ! ========================== FILLED CART */
 
 .filled-cart{
     width: 100%;
@@ -542,13 +588,13 @@ footer{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* display: none;  */
+    /* display: none;    */
 }
 
 .cart-card{
     padding: 8px;
     width: 400px;
-    background-color: #89afa1;
+    background-color: #fbfbfb;/*#89afa1*/
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -562,12 +608,27 @@ footer{
     height: 100px;
 }
 
+.item-desc{
+    margin-top: -20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:flex-start;
+}
 
 .item-desc > h4{
-    margin-bottom: -14px;
+    margin-bottom: -10px;
+    font-size: 19px;
+}
+
+.subtotal{
+    margin-top: -10px;
+    color: rgb(184, 50, 84);
+    font-weight: 700;
 }
 
 .cart-counter{
+    margin-top: -6px;
     background-color: #f0eeee;
     display: flex;
     justify-content: space-between;
@@ -577,7 +638,8 @@ footer{
     border-radius: 4px;
 }
 
-.cart-counter > div {
+
+.menos , .mas {
     width: 30px;
     height: 30px;
     background-color: #349570;
@@ -589,30 +651,75 @@ footer{
     border-radius: 4px;
 }
 
-.cart-counter > div:hover{
+.menos:hover{
+    cursor: pointer;
+    background: #454444;
+}
+
+.mas:hover{
     cursor: pointer;
     background: #454444;
 }
 
 .cart-card > svg {
-    stroke: white;
+    stroke: #454444;
     margin-left: 3px;
 }
 
 .cart-card > svg:hover {
-   stroke: #454444;
+   stroke: #349570;
    cursor: pointer;
 }
 
-@media(max-width: 620px){
-    .cart-html{
-        height: 150vh;
-    }
+@media(max-width: 820px){
+   
     .cart-card{
         width: 100%;
+        padding: 4px;
+        justify-content: space-around;
+        margin-bottom: 10px;
     }
 
     .item-price{
-        gap: 190px;
+        gap: 100px;
+        margin-top: -10px;
     }
+
+    .filled-cart{
+        margin-top: -30px;
+    }
+    
+    .cart-img{
+        height: 100px;
+    }
+    
+    .item-desc{
+        font-size: 12px;
+    }
+    
+    .item-desc > h4{
+        margin-bottom: -10px;
+        font-size: 16px;
+    }
+    
+    .cart-counter{
+        margin-top: -6px;
+        background-color: #f0eeee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #454444;
+        font-weight: 500;
+        border-radius: 4px;
+        font-size: 10px;
+    }
+    
+    
+    .menos , .mas {
+        width: 25px;
+        height: 25px;
+       
+    }
+    
 }
+
