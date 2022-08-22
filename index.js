@@ -11,6 +11,7 @@ const addToCart = document.querySelector('.add-to-cart');
 const cartIcon = document.querySelector('.cart');
 const filterBtns = document.querySelectorAll('.filter-btn');
 const productCards = document.querySelectorAll('.card');
+const moon = document.querySelector('.icon-tabler-moon')
 
 
 
@@ -89,10 +90,6 @@ if (sumaCart <= 0) {
 
 function events() {
 
-    //counterHoodies = localStorage.getItem(JSON.stringify('hoddies'))
-    // counterShirt = localStorage.getItem('shirt')
-    // counterHat = localStorage.getItem('hat')
-
     //! ••••••••••••••••••••• LOCAL STORAGE 
 
     //*  –––––––––––––––––––––––– HOODIE
@@ -105,9 +102,6 @@ function events() {
         contadorCarrito.textContent = sumaCart;
         itemPrice.children[0].textContent = `${sumaCart} items`;
         units[0].textContent = `${counterHoodies} units`;
-
-        //localStorage.setItem('hoddies', JSON.stringify(counterHoodies) );
-
 
         subTotal[0].textContent = `Subtotal: $${subtotal(24, counterHoodies)}.00`;
         subHoodies = subtotal(24, counterHoodies);
@@ -134,8 +128,6 @@ function events() {
         units[0].textContent = `${counterHoodies} units`;
         
       
-        //localStorage.setItem('hoddies', JSON.stringify(counterHoodies) );
-
         subTotal[0].textContent = `Subtotal: $${subtotal(24, counterHoodies)}.00`;
         finalPrice.textContent = `Total: $${
             total(subtotal(24, counterHoodies), 
@@ -171,7 +163,6 @@ function events() {
         itemPrice.children[0].textContent = `${sumaCart} items`;
         units[1].textContent = `${counterShirt} units`;
 
-        //localStorage.setItem('shirt', JSON.stringify(counterShirt) );
 
         subTotal[1].textContent = `Subtotal: $${subtotal(18, counterShirt)}.00`;
         finalPrice.textContent = `Total: $${
@@ -196,7 +187,6 @@ function events() {
         itemPrice.children[0].textContent = `${sumaCart} items`;
         units[1].textContent = `${counterShirt} units`;
 
-        //localStorage.setItem('shirt', JSON.stringify(counterShirt) );
 
         subTotal[1].textContent = `Subtotal: $${subtotal(18, counterShirt)}.00`;
         finalPrice.textContent = `Total: $${
@@ -235,8 +225,6 @@ function events() {
         itemPrice.children[0].textContent = `${sumaCart} items`;
         units[2].textContent = `${counterHat} units`;
 
-        //localStorage.setItem('hat', JSON.stringify(counterHat) );
-
         subTotal[2].textContent = `Subtotal: $${subtotal(14, counterHat)}.00`;
         finalPrice.textContent = `Total: $${
             total(subtotal(24, counterHoodies), 
@@ -261,8 +249,7 @@ function events() {
         itemPrice.children[0].textContent = `${sumaCart} items`;
         units[2].textContent = `${counterHat} units`;
 
-        //localStorage.setItem('hat', JSON.stringify(counterHat) );
-
+        
         subTotal[2].textContent = `Subtotal: $${subtotal(14, counterHat)}.00`;
         finalPrice.textContent = `Total: $${
             total(subtotal(24, counterHoodies), 
@@ -322,22 +309,79 @@ function events() {
 
     trash.forEach((button, index) => {
         button.addEventListener('click', ()=>{
-            trash[index].parentElement.remove();
-            console.log(trash[index].parentElement);
-            
+            if (index === 0) {
+                trash[index].parentElement.style.display = 'none';
 
+                counterHoodies = 0
+                sumaCart = counterHat + counterHoodies + counterShirt;
+                contadorCarrito.textContent = sumaCart;
+                itemPrice.children[0].textContent = `${sumaCart} items`;
+                units[0].textContent = `${counterHoodies} units`;
+    
+                subTotal[0].textContent = `Subtotal: $${subtotal(24, counterHoodies)}.00`;
+                subHoodies = subtotal(24, counterHoodies);
+                finalPrice.textContent = `Total: $${
+                total(subtotal(24, counterHoodies), 
+                subtotal(18, counterShirt),
+                subtotal(14, counterHat))}.00`;
+
+
+
+            } else if (index === 1) {
+                trash[index].parentElement.style.display = 'none';
+                
+                counterShirt = 0
+                sumaCart = counterHat + counterHoodies + counterShirt;
+                contadorCarrito.textContent = sumaCart;
+                itemPrice.children[0].textContent = `${sumaCart} items`;
+                units[1].textContent = `${counterShirt} units`;
+
+
+                subTotal[1].textContent = `Subtotal: $${subtotal(18, counterShirt)}.00`;
+                finalPrice.textContent = `Total: $${
+                total(subtotal(24, counterHoodies), 
+                subtotal(18, counterShirt),
+                subtotal(14, counterHat))}.00`;
+
+
+
+            }else if (index === 2) {
+                trash[index].parentElement.style.display = 'none';
+                
+                counterHat = 0
+                sumaCart = counterHat + counterHoodies + counterShirt;
+                contadorCarrito.textContent = sumaCart;
+                itemPrice.children[0].textContent = `${sumaCart} items`;
+                units[2].textContent = `${counterHat} units`;
+
+
+                subTotal[2].textContent = `Subtotal: $${subtotal(14, counterHat)}.00`;
+                finalPrice.textContent = `Total: $${
+                total(subtotal(24, counterHoodies), 
+                subtotal(18, counterShirt),
+                subtotal(14, counterHat))}.00`;
+            }
+
+            if ( trash[0].parentElement.style.display === 'none' &&  trash[1].parentElement.style.display === 'none' &&  trash[2].parentElement.style.display === 'none') {
+                emptyCart.style.display = 'flex'
+            }
+    
+            
         });
 
     });
 
     //*  –––––––––––––––––––––––– ADD BUTTON
 
-    addBtnCard.forEach((button) => {
+
+    addBtnCard.forEach((button, index) => {
         button.addEventListener('click', () =>{
             myCart.parentElement.style.display = 'flex'
             emptyCart.style.display = 'none';
             filledCart.style.display = 'flex';
             buyBtn.style.display = 'flex';
+            trash[index].parentElement.style.display = 'flex';
+        
         })
     })
 
@@ -346,6 +390,7 @@ function events() {
         emptyCart.style.display = 'none';
         filledCart.style.display = 'flex';
         buyBtn.style.display = 'flex';
+        trash[1].parentElement.style.display = 'flex';
        
         counterShirt = 1
         sumaCart = counterHat + counterHoodies + counterShirt;
@@ -359,6 +404,11 @@ function events() {
             total(subtotal(24, counterHoodies), 
             subtotal(18, counterShirt),
             subtotal(14, counterHat))}.00`;
+        
+        if (counterShirt === 0) {
+            emptyCart.style.display = 'flex';
+            
+        }
 
     })
 
@@ -409,143 +459,6 @@ function events() {
 
 
 
-
-
-
-
 events();
 //! ``````````` TEMPLATES 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// moreItems[0].addEventListener('click', ()=> {
-//     counterHoodies++
-//     sumaCart = counterHat + counterHoodies + counterShirt
-
-//     contadorTarjeta.children[1].textContent = `${counterHoodies} units`
-//      //console.log(contadorTarjeta.children[1].textContent);
-    
-//      if (counterHoodies >= 10 ) {
-//         alert('Tenemos en Stock solo 10 unidades')
-//         counterHoodies = 9
-//     }
-// })
-
-// lessItems[0].addEventListener('click', ()=> {
-//     counterHoodies--
-//     sumaCart = counterHat + counterHoodies + counterShirt
-//     console.log("esto es sumaCart",sumaCart);
-//     contadorTarjeta.children[1].textContent = `${counterHoodies} units`
-
-//     if (counterHoodies < 1 ) {
-//         counterHoodies = 1
-//     }
-// })
-
-// //* ================ SHIRT
-
-// moreItems[1].addEventListener('click', ()=> {
-//     counterShirt++
-//     sumaCart = counterHat + counterHoodies + counterShirt
-
-//     contadorTarjeta.parentElement.parentElement.nextElementSibling.children[1].children[1].children[1].textContent = `${counterShirt} units`
-//  //console.log(contadorTarjeta.parentElement.parentElement.nextElementSibling.children[1].children[1].children[1].textContent);
-
-//  if (counterShirt >= 18 ) {
-//     alert('Tenemos en Stock solo 18 unidades')
-//     counterShirt = 17
-// }
-// })
-
-// lessItems[1].addEventListener('click', ()=> {
-//     counterShirt--
-//     sumaCart = counterHat + counterHoodies + counterShirt
-
-//     contadorTarjeta.parentElement.parentElement.nextElementSibling.children[1].children[1].children[1].textContent = `${counterShirt} units`
-
-//     if (counterShirt < 1 ) {
-//         counterShirt = 1
-//     }
-// })
-
-
-
-// //* ================ HAT
-
-// moreItems[2].addEventListener('click', ()=> {
-//     counterHat++
-//     sumaCart = counterHat + counterHoodies + counterShirt
-
-//     contadorTarjeta.parentElement.parentElement.nextElementSibling.nextElementSibling.children[1].children[1].children[1].textContent = `${counterHat} units`
-
-
-//     if (counterHat >= 20 ) {
-//         alert('Tenemos en Stock solo 20 unidades')
-//         counterHat = 19
-//     }
-// })
-
-// lessItems[2].addEventListener('click', ()=> {
-//     counterHat--
-//     sumaCart = counterHat + counterHoodies + counterShirt
-    
-
-//     contadorTarjeta.parentElement.parentElement.nextElementSibling.nextElementSibling.children[1].children[1].children[1].textContent = `${counterHat} units`
-
-//     if (counterHat < 1 ) {
-//         counterHat = 1
-//     }
-// })
-
-
-
-
-
-//* ================ LIL CART
-
-
-
-//contadorCarrito.textContent = sumaCart
-
-
-
-
-
-
-
-
-
-
-
-/*moreItems.addEventListener('click', ()=> console.log('More items is listen'))
-
-lessItems.addEventListener('click', ()=> console.log('Less items is listen'))
-
-trash.addEventListener('click', ()=> console.log('Trash is listen'))*/
-
-
-
-
-
 

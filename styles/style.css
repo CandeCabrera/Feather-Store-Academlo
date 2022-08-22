@@ -493,6 +493,8 @@ footer{
     color: #349570;
 }
 
+
+
 .empty-cart-title{
     display: flex;
     flex-direction: column;
@@ -578,6 +580,10 @@ footer{
         width: 30px;
         font-size: 16px;
     }
+
+    .empty-cart > div > img{
+        height: 135px;
+    }
    
  }
 
@@ -604,6 +610,8 @@ footer{
     overflow: hidden;
     box-shadow: 0.1px 0.1px 10px #454444;
 }
+
+
 
 .cart-img{
     height: 100px;
@@ -670,6 +678,18 @@ footer{
 .cart-card > svg:hover {
    stroke: #349570;
    cursor: pointer;
+}
+
+.one{
+    display: none;
+}
+
+.two{
+    display: none;
+}
+
+.three{
+    display: none;
 }
 
 @media(max-width:820px){
